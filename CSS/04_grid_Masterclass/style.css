@@ -42,10 +42,72 @@
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,100px);
 }
-.Box1{
+.Box1 {
     background-color: #107cdb;
     text-align: center;
     padding: 20px;
-    color: azure
-    grid-column: ;
+    color: azure;
+    grid-column: 1/3;
+}
+.Box2{
+    background-color: #f30404;
+    text-align: center;
+    padding: 20px;
+    color: azure;
+    grid-column: 3/3;
+    grid-row: 1/3;
+}
+.Box3 {
+    background-color: #107cdb;
+    text-align: center;
+    padding: 20px;
+    color: azure;
+    grid-column: 1/2;
+}
+.Box4{
+    background-color: #f30404;
+    text-align: center;
+    padding: 20px;
+    color: azure;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+.Box5 {
+    background-color: #107cdb;
+    text-align: center;
+    padding: 20px;
+    color: azure;
+    grid-column: 2/4;
+    grid-row: 3/4;
+}
+.grid-container5{
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 'header header header' 'side main main' 'footer footer footer';
+}
+.grid-container6{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.grid-container7{
+    display: grid;
+    gap: 10px;
+    height: 170px;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+}
+.grid-container8{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr
+}
+.grid-container9{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+.grid-container10{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
