@@ -1,7 +1,8 @@
+import "dotenv/config";
 import express from "express";
 
 const app = express();
-const port = 7000;
+const port = process.env.PORT || 7000;
 
 app.use(express.json()); // it will accept data from frontend in json(javaScript Obeject Notation) formant only which are [Numbers,Boolean,String,Arrays,Keys and Values,Null,Objects]
 
