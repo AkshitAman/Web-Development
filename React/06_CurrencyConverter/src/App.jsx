@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import useCurrencyInfo from './hooks/useCurrencyInfo'
-import inputBox from './Components/index.js'
+import InputBox from './Components/index.js'
 
 function App() {
   const [amount, setAmount] = useState(0)
@@ -12,7 +12,7 @@ function App() {
   const [convertedAmount, setConvertedAmount] = useState(0)
 
   const currencyInfo = useCurrencyInfo(from)
-  const options = Object.keys(currencyInfo)
+  const options = Object.keys(currencyInfo || {})
 
   const swap = () => {
     setFrom(to)
@@ -36,17 +36,38 @@ function App() {
             e.preventDefault() 
             convert()
           }}>
-            <div>
-              <inputBox 
+            <div className='w-full mb-1'>
+              <InputBox 
               label = "from"
               amount = {amount}
               currencyOptions={options}
-              onCurrencyChange={setFrom}
-              onAmountChange={setAmount}
+              onCurrencyChange={(currency) => setFrom(currency)}
+              onAmountChange={(amount) => setAmount(amount)}
               selectedCurrency={from}
               />
             </div>
-          </form>
+            <div className='relative w-full h-0.5'>
+              <button className='absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5'
+              onClick={swap}>
+                Swap
+              </button>
+            </div>
+            <div className='w-full mb-1'>
+              <InputBox 
+              label = "to"
+              amount = {convertedAmount}
+              currencyOptions={options}
+              onCurrencyChange={(currency) => setTo(currency)}
+              selectedCurrency={to}
+              amountDisabled
+              />
+            </div>
+            <button 
+            type="submit" 
+            className='w-full bg-blue-600 text-white px-4 py-3 rounded-lg'>
+              Convert {from} to {to}
+            </button>
+          </form>           
         </div>
       </div>
     </div>
